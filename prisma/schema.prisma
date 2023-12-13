@@ -1,0 +1,147 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mongodb"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model club {
+  id         String  @id @map("_id")
+  controller String?
+  matchId    String
+  name       String
+  rank       Int
+  clubOnplayers clubOnplayer[]
+}
+
+model clubOnplayer {
+  id       String @id @map("_id")
+  clubId   String
+  grade    Int
+  playerId Int
+  position Int
+  club     club   @relation(fields: [clubId], references: [id])
+  player   player @relation(fields: [playerId], references: [id])
+
+  @@index([playerId,clubId])
+}
+
+model player {
+  id               Int      @id @map("_id")
+  CAM              Int?
+  CB               Int?
+  CDM              Int?
+  CF               Int?
+  CM               Int?
+  GK               Int?
+  LB               Int?
+  LM               Int?
+  LW               Int?
+  LWB              Int?
+  RB               Int?
+  RM               Int?
+  RW               Int?
+  RWB              Int?
+  ST               Int?
+  acceleration     Int
+  aggression       Int
+  agility          Int
+  balance          Int
+  ballcontrol      Int
+  composure        Int
+  crossing         Int
+  curve            Int
+  dribbling        Int
+  finishing        Int
+  freekickaccuracy Int
+  gkdiving         Int
+  gkhandling       Int
+  gkkicking        Int
+  gkpositioning    Int
+  gkreflexes       Int
+  headingaccuracy  Int
+  height           Int
+  imgSrc           String
+  interceptions    Int
+  jumping          Int
+  longpassing      Int
+  longshots        Int
+  mainfoot         Int
+  marking          Int
+  name             String
+  nation           String
+  ovr              Int
+  pay              Int
+  penalties        Int
+  physical         Int
+  pid              Int
+  positioning      Int
+  reactions        Int
+  season           String
+  shortpassing     Int
+  shotpower        Int
+  skillmove        Int
+  slidingtackle    Int
+  sprintspeed      Int
+  stamina          Int
+  standingtackle   Int
+  strength         Int
+  subfoot          Int
+  trait            String[]
+  vision           Int
+  volleys          Int
+  weight           Int
+  clubOnplayers    clubOnplayer[]
+  likePlayers      playerOnplayer[] @relation("likePlayer")
+  selfPlayer       playerOnplayer[] @relation("selfPlayer")
+  recommends recommend[]
+  teamcolorOnplayers teamcolorOnplayer[]
+}
+
+model playerOnplayer {
+  id           String @id @map("_id")
+  likePlayerId Int
+  rank         Int
+  selfPlayerId Int
+  likePlayer   player @relation(fields: [likePlayerId], references: [id], name: "likePlayer")
+  selfPlayer   player @relation(fields: [selfPlayerId], references: [id], name: "selfPlayer")
+}
+
+model recommend {
+  id               String @id @map("_id")
+  category         String
+  playerId         Int
+  rank             Int
+  subcategory      String
+  subcategoryOrder Int
+  player player @relation(fields: [playerId], references: [id])
+
+  @@index([playerId])
+}
+
+model teamcolor {
+  id             Int     @id @map("_id")
+  ability1       String
+  ability1Status Int
+  ability2       String?
+  ability2Status Int
+  ability3       String?
+  ability3Status Int
+  ability4       String?
+  ability4Status Int
+  category       String
+  level          String
+  name           String
+  teamcolorOnplayers teamcolorOnplayer[]
+}
+
+model teamcolorOnplayer {
+  id          String @id @map("_id")
+  playerId    Int
+  teamColorId Int
+  player player @relation(fields: [playerId], references: [id])
+  teamcolor teamcolor @relation(fields: [teamColorId], references: [id])
+}

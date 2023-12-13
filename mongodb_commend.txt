@@ -1,0 +1,6 @@
+mongod --replSet rs0 --dbpath D:\MongoDB\Server\7.0\data --port 27017
+mongod --replSet rs0 --dbpath D:\MongoDB\Server\7.0\rs0\data1 --port 27018
+config = { _id : "rs0", members : [
+                {_id : 0 , host : "localhost:27017"},
+                {_id : 1 , host : "localhost:27018"}
+]}
