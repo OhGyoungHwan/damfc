@@ -1,10 +1,10 @@
-import { IClubResponse } from "../api/club/route";
+import { IClubRES } from "../api/club/route";
 import { IRecommendResponse } from "../api/recommend/route";
 
 export const getClub = async () =>
   (await fetch("http://localhost:3000/api/club").then((res) =>
     res.json()
-  )) as IClubResponse;
+  )) as IClubRES;
 
 export const getRecommend = async () =>
   (await fetch("http://localhost:3000/api/recommend").then((res) =>
