@@ -2,14 +2,14 @@ import { IClubRES } from "../api/club/route";
 import { IRecommendResponse } from "../api/recommend/route";
 
 export const getClub = async () =>
-  (await fetch("http://localhost:3000/api/club").then((res) =>
-    res.json()
-  )) as IClubRES;
+  (await fetch(
+    "https://damfc-3y0v45jwj-ohgyounghwans-projects.vercel.app/api/club"
+  ).then((res) => res.json())) as IClubRES;
 
 export const getRecommend = async () =>
-  (await fetch("http://localhost:3000/api/recommend").then((res) =>
-    res.json()
-  )) as IRecommendResponse;
+  (await fetch(
+    "https://damfc-3y0v45jwj-ohgyounghwans-projects.vercel.app/api/recommend"
+  ).then((res) => res.json())) as IRecommendResponse;
 
 const GET_CLUB = "get-api-club";
 const GET_RECOMMEND = "get-api-recommend";
