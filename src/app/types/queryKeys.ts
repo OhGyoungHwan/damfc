@@ -2,13 +2,13 @@ import { IClubRES } from "../api/club/route";
 import { IRecommendResponse } from "../api/recommend/route";
 
 export const getClub = async () =>
-  (await fetch(`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/api/club`).then((res) =>
+  (await fetch(`https://damfc.vercel.app/api/club`).then((res) =>
     res.json()
   )) as IClubRES;
 
 export const getRecommend = async () =>
-  (await fetch(`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/api/recommend`).then(
-    (res) => res.json()
+  (await fetch(`https://damfc.vercel.app/api/recommend`).then((res) =>
+    res.json()
   )) as IRecommendResponse;
 
 const GET_CLUB = "get-api-club";
