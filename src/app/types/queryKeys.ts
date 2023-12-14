@@ -2,13 +2,13 @@ import { IClubRES } from "../api/club/route";
 import { IRecommendResponse } from "../api/recommend/route";
 
 export const getClub = async () =>
-  (await fetch("http://127.0.0.1:3000/api/club").then((res) =>
+  (await fetch(`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/api/club`).then((res) =>
     res.json()
   )) as IClubRES;
 
 export const getRecommend = async () =>
-  (await fetch("http://127.0.0.1:3000/api/recommend").then((res) =>
-    res.json()
+  (await fetch(`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/api/recommend`).then(
+    (res) => res.json()
   )) as IRecommendResponse;
 
 const GET_CLUB = "get-api-club";
