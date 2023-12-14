@@ -42,7 +42,7 @@ const prismaRecommend = prisma.recommend.findMany({
   ],
 });
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   const res = await prismaRecommend;
   const recommend = Object.create(null) as IRecommendResponse;
   res?.map((obj) => {

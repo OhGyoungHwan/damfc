@@ -90,7 +90,7 @@ const prismaClubOnplayergamepad = prisma.clubOnplayer.findMany({
   },
 });
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   const keyboardRes = await prismaClubOnplayerkeyboard;
   const gamepadRes = await prismaClubOnplayergamepad;
   const clubs = { keyboard: [], gamepad: [] } as IClubRES;

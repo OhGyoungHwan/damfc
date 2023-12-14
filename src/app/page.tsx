@@ -8,8 +8,8 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center px-[16px] compact:pl-[88px] compact:pr-[32px] py-[32px] gap-[96px]">
       <Hydrate state={dehydratedState}>
-        <Recommends />
-        <Clubs />
+        {/* <Recommends />
+        <Clubs /> */}
       </Hydrate>
     </main>
   );
