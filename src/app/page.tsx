@@ -1,5 +1,3 @@
-import Clubs from "./component/Clubs";
-import Recommends from "./component/Recommends";
 import Hydrate from "./utils/Hydrate";
 import { useSSRGetHome } from "./hooks/queries";
 
