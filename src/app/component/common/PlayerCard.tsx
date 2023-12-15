@@ -7,7 +7,14 @@ import { useRef } from "react";
 export default function PlayerCard({
   player,
 }: {
-  player: IRecommendResponse[""][""]["players"][0];
+  player: {
+    id: number;
+    name: string;
+    season: string;
+    pay?: number;
+    ovr?: number;
+    imgSrc: string;
+  };
 }) {
   const ref = useRef(null);
   const isOverflow = useIsOverflow(ref, () => {});
@@ -24,7 +31,7 @@ export default function PlayerCard({
             />
             <Image
               alt={`${player.season}`}
-              src={`/season/${player.season}.png`}
+              src={`/season/${player.season.toLowerCase()}.png`}
               width={30}
               height={24}
               className="inline-block absolute left-1 bottom-0"

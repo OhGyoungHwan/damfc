@@ -6,6 +6,7 @@ import PlayerCard from "./common/PlayerCard";
 import SegmentedButton from "./common/SegmentedButton";
 import { IRecommendResponse } from "../api/recommend/route";
 import { classNames } from "../utils/cssfunction";
+import Link from "next/link";
 
 const Recommends = () => {
   // 추천 선수 받아오기 [데이터]
@@ -87,9 +88,13 @@ const subcategorySegmentedButtons = (
 
 const carouselElements = (players: IRecommendResponse[""][""]["players"]) => {
   return players.map((player, idx) => (
-    <div key={`${player.name}playercard`} className="relative">
+    <Link
+      href={`/lookalike?spid=${player.id}`}
+      key={`${player.name}playercard`}
+      className="relative"
+    >
       <PlayerCard player={player} />
-    </div>
+    </Link>
   ));
 };
 

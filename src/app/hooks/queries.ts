@@ -1,4 +1,4 @@
-import queryKeys from "../types/queryKeys";
+import queryKeys, { getLookalike } from "../types/queryKeys";
 import { useQuery } from "@tanstack/react-query";
 import { getClub, getRecommend } from "../types/queryKeys";
 import { getQueryClient } from "../utils/getQueryClient";
@@ -18,6 +18,13 @@ export function useGetRecommend() {
   });
 }
 
+export function useGetLookalike(spid: number) {
+  return useQuery({
+    queryKey: [`${queryKeys.GET_LOOKALIKE}${spid}`],
+    queryFn: () => getLookalike(spid),
+  });
+}
+
 export async function useSSRGetHome() {
   const client = getQueryClient();
   await client.prefetchQuery({
@@ -27,6 +34,18 @@ export async function useSSRGetHome() {
   await client.prefetchQuery({
     queryKey: [queryKeys.GET_RECOMMEND],
     queryFn: () => getRecommend(),
+  });
+  const dehydratedState = dehydrate(client, {
+    shouldDehydrateQuery: () => true,
+  });
+  return { dehydratedState: dehydratedState };
+}
+
+export async function useSSRGetLookalike(spid: number) {
+  const client = getQueryClient();
+  await client.prefetchQuery({
+    queryKey: [`${queryKeys.GET_LOOKALIKE}${spid}`],
+    queryFn: () => getLookalike(spid),
   });
   const dehydratedState = dehydrate(client, {
     shouldDehydrateQuery: () => true,

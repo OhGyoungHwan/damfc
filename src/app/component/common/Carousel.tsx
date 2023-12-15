@@ -9,12 +9,15 @@ import { ReactNode } from "react";
 export default function Carousel({
   elements,
   spaceBetween = 8,
+  direction,
 }: {
   elements?: ReactNode[];
   spaceBetween?: number;
+  direction?: "horizontal" | "vertical";
 }) {
   return (
     <Swiper
+      direction={direction}
       spaceBetween={spaceBetween}
       slidesPerView={"auto"}
       className="w-full"
