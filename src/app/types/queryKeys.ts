@@ -2,7 +2,7 @@ import { IClubRES } from "../api/club/route";
 import { IPlayerOnPlayerRES } from "../api/lookalike/route";
 import { IRecommendResponse } from "../api/recommend/route";
 
-const BASE_URL = "https://damfc-ohgyounghwans-projects.vercel.app";
+const BASE_URL = "https://damfc.vercel.app";
 
 export const getClub = async () =>
   (await fetch(`${BASE_URL}/api/club`).then((res) => res.json())) as IClubRES;
