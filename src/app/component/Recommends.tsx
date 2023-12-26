@@ -47,7 +47,7 @@ const Recommend = ({
   return (
     <div className="flex flex-col">
       <h2 className="textHeadlineMedium text-onSurface ml-[20px]">
-        {category}
+        {`${category} 랭킹`}
       </h2>
       <Carousel
         elements={subcategorySegmentedButtons(
