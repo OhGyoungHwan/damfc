@@ -37,7 +37,6 @@ yarn-error.log*
 /public/players/**/p*4.webp
 /public/players/**/p*5.webp
 /public/players/**/p*6.webp
-/public/players/**/p*7.webp
 
 # vercel
 .vercel
