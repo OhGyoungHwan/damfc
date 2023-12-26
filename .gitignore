@@ -31,7 +31,13 @@ yarn-error.log*
 .env
 
 /public/playersAction/**/*.webp
-/public/players/**/p*.webp
+/public/players/**/p1*.webp
+/public/players/**/p2*.webp
+/public/players/**/p3*.webp
+/public/players/**/p4*.webp
+/public/players/**/p5*.webp
+/public/players/**/p6*.webp
+/public/players/**/p7*.webp
 
 # vercel
 .vercel
