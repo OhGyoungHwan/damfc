@@ -31,7 +31,6 @@ yarn-error.log*
 .env
 
 /public/playersAction/**/*.webp
-/public/players/**/p*1.webp
 
 # vercel
 .vercel
